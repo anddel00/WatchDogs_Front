@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca Eventi</title>
+    <style>
+        /* Stili CSS globali */
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #3e56a2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: #f0f0f0;
+            width: 80%;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 36px;
+            text-align: center;
+            color: #3e56a2;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .search-box {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #578aec;
+        }
+        .dropdown-menu {
+            position: relative;
+            margin-top: 5px;
+            width: 100%;
+        }
+        .dropdown-menu ul {
+            
+            padding: 0;
+            margin: 0;
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-menu li {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-menu li:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ricerca Eventi</h1>
+        <div class="search-container">
+            <input type="text" v-model="input" @input="filterItems" class="search-box" name="q" placeholder="Cerca evento...">
+            <div class="dropdown-menu" v-if="filteredItems.length > 0">
+                <ul>
+                    <li v-for="item in filteredItems" :key="item" @click="selectItem(item)">{{ item }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu-container">
+            <label for="evento">Scegli un tipo di evento:</label>
+            <select id="evento" class="menu-box" name="Evento">
+                <optgroup label="Culturale">
+                    <option value="Spettacolo teatrale">Spettacolo teatrale</option>
+                    <option value="Mostra d'arte">Mostra d'arte</option>
+                    <option value="Seminario">Seminario</option>
+                </optgroup>
+                <optgroup label="Divertimento">
+                    <option value="Concerto">Concerto</option>
+                    <option value="Festa a tema">Festa a tema</option>
+                    <option value="Serata disco">Serata disco</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+
+            data: {
+                input: '',
+                items: ['Sport', 'Teatro', 'Cinema', 'Disco'],
+                filteredItems: []
+            },
+
+            methods: {
+                filterItems() {
+                    if (this.input.trim() === '') {
+                        this.filteredItems = [];
+                    } else {
+                        const searchTerm = this.input.toLowerCase();
+                        this.filteredItems = this.items.filter(item =>
+                            item.toLowerCase().includes(searchTerm)
+                        );
+                    }
+                },
+                selectItem(item) {
+                    this.input = item;
+                    this.filteredItems = []; // Nascondi la tendina dopo la selezione
+                }
+            }
+        });
+    </script>
+</body>
+</html>
