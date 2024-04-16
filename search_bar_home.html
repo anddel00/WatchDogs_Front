@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricerca</title>
+  <style>
+    /* Stili CSS per la barra di ricerca e il menu select */
+    body {
+      height: 2000px;
+      background-color: rgba(62, 86, 162, 0.71);
+
+    }
+    .firma{
+      position: relative;
+      text-align: right;
+      font-size: 22px;
+      font-family: "Cormorant Garamond",serif;
+      margin-top: 50px;
+      margin-right: 130px;
+
+
+    }
+    .container {
+      margin: auto;
+      margin-top: 10px;
+      background-color: #3E56A2B5;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e7ebfc 60%);
+      width: 80%;
+      border: none;
+      border-radius: 30px;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 2px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      position: relative;
+
+
+    }
+.menu-box{
+  border-radius: 15px;
+  border: 1px solid white;
+  height: 30px;
+  padding: 5px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+  
+}
+     /*FONT---FONT---FONT*/
+    .lobster-regular {
+      font-family: "Lobster", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .cormorant-garamond-bold {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+
+    .header-text {
+      margin-left: 60px; /* Allinea con il margine sinistro della barra di ricerca */
+      margin-bottom: 2px; /* Spazio inferiore */
+      margin-top: 40px;
+      font-size: 28px;
+      text-shadow: 1px 1px 1px white;
+      font-family: "Lobster", sans-serif;
+    }
+
+
+    .header-nav-text {
+      margin-top: 15px;
+      margin-left: 630px;
+      margin-bottom: 0;
+      position: absolute;
+      text-shadow: 1px 1px 1px white;
+      font-size: 48px;
+      font-family: "Lobster", sans-serif;
+    }
+
+    .nav {
+      background-color: white;
+      border-radius: 30px;
+      padding: 15px 20px; /*Spazio interno*/
+      position: absolute;
+      margin-top: 5px;
+      top: 50%;
+      right: 1px;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      left: 850px;
+      font-size: 20px;
+      border: 2px solid ;
+      border-bottom: white;
+      border-color: #919090;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .nav li {
+      display: inline-block;
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .nav li:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      height: 20px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: black;
+      border-radius: 15px;
+      padding: 5px 10px;
+    }
+
+    .nav a:hover {
+      background-color: #99aedc;
+      text-decoration: underline;
+      text-shadow: 1px 1px 1px white;
+    }
+
+    .search-container {
+      margin-top: 20px; /* Aggiunto margine superiore per spazio */
+    }
+
+    .search-box {
+      padding: 8px;
+      width: 200px;
+      border: 1px solid;
+      border-right: none;
+      border-radius: 30px 0 0 30px; /* Arrotondamento solo per gli angoli sinistri */
+      font-size: 16px;
+      margin-left: 30px;
+      margin-right: none;
+      margin-top: 2px;
+      border-color: #919090;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    .search-box:focus {
+      /* Assottigliare il bordo blu quando la barra di ricerca ha il focus */
+      outline: 1px solid #578aec;
+    }
+
+
+    .search-button {
+      padding: 8px 16px;
+      color:white ;
+      background-color: #578aec;
+      border: 1px solid #919090;
+      border-left: none;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: -6px;
+    }
+
+    .search-button:hover {
+      background-color: #5775be;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .separator {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      margin-left: 120px;
+      font-size: 22px;
+      text-shadow: 1px 1px 1px white;
+      font-family: "Lobster", sans-serif;
+    }
+
+    /*menu a tendina */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8); /* trasparente */
+      border: 2px solid;
+      border-top: white;
+      border-color:#919090 ;
+      border-radius: 30px;
+      padding: 5px 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      z-index: 1000;
+      width: 520px;
+      left: -1px;
+      top: calc(100% + 3px); /* Posiziona il menu a tendina sotto il menu di navigazione */
+    }
+    .dropdown-menu a {
+      color: black;
+      border-radius: 8px;
+      padding: 5px 10px;
+      display: block;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #ffffff; /* Sfondo bianco al passaggio */
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #99aedc;
+    }
+    .container-two{
+      margin: auto;
+      margin-top: 40px;
+      background-color: #3E56A2B5;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e7ebfc 60%);
+      width: 80%;
+      height: 1200px;
+      border: none;
+      border-radius: 30px;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 2px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      position: relative;
+    }
+    .homepage-title{
+      font-size: 52px;
+      text-shadow: 1px 1px 1px white;
+      font-family: "Lobster", sans-serif;
+      text-align: center;
+      position: relative;
+      margin-top: 50px;
+
+    }
+    .header-article{
+      font-size: 22px;
+      text-shadow: 1px 1px 1px white;
+      font-family: "Lobster", sans-serif;
+      text-align: left;
+      margin-left: 30px;
+    }
+    .text-article{
+      font-size: 16px;
+      text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.68);
+      font-family: "Cormorant Garamond", serif;
+      margin-left: 30px;
+    }
+    .article-1 {
+      position: relative;
+      text-align: justify;
+      max-width: 350px;
+      margin-top: 70px;
+      margin-left: 30px;
+    }
+    .article-2{
+      position: relative;
+      text-align: justify;
+      max-width: 350px;
+      margin-top: 70px;
+      margin-left: 30px;
+
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container">
+  <p class="header-nav-text"><b>Potrebbero interessarti</b></p>
+  <div class="nav">
+    <ul>
+      <li><a href="#" onclick="toggleDropdown('SPORT')"><b>SPORT</b></a></li>
+      <li><a href="#" onclick="toggleDropdown('TEATRO')"><b>TEATRO</b></a></li>
+      <li><a href="#" onclick="toggleDropdown('CINEMA')"><b>CINEMA</b></a></li>
+      <li><a href="#" onclick="toggleDropdown('DISCO')"><b>DISCO</b></a></li>
+    </ul>
+
+    <div id="dropdown" class="dropdown-menu"></div>
+  </div>
+  <p class="header-text"><b>Digita qui il tuo evento</b></p>
+  <div class="search-container">
+    <form action="/search" method="get">
+      <input type="text" class="search-box" name="q" placeholder="Cerca evento...">
+      <button type="submit" class="search-button">Vai</button>
+    </form>
+  </div>
+  <div class="separator">oppure</div>
+  <div class="menu-container">
+    <label for="evento" style="margin-right: 10px;">Scegli un tipo di evento:</label>
+    <select id="evento" class="menu-box" name="Evento">
+      <optgroup label="Culturale">
+        <option value="Spettacolo teatrale">Spettacolo teatrale</option>
+        <option value="Mostra d'arte">Mostra d'arte</option>
+        <option value="Seminario">Seminario</option>
+      </optgroup>
+      <optgroup label="Divertimento">
+        <option value="Concerto">Concerto</option>
+        <option value="Festa a tema">Festa a tema</option>
+        <option value="Serata disco">Serata disco</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+
+<div class="container-two"><h1 class="homepage-title"><b>Questa potrebbe essere l'homepage</b></h1>
+  <div class="article-1">
+    <h2 class="header-article">Questo potrebbe essere un post</h2>
+    <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+    oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+    e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+      oppure il menu a tendina (quello di sinistra),
+      oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+      e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+  </div>
+  <hr>
+  <div class="article-2"><h2 class="header-article">Questo potrebbe essere un post</h2>
+    <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+      oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+      e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+      oppure il menu a tendina (quello di sinistra),
+      oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+      e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+</div>
+
+
+</div>
+<footer class="firma"><i>Watchdogs</i></footer>
+
+<script>
+  // Funzione per mostrare/nascondere il menu a tendina
+  function toggleDropdown(categoria) {
+    var dropdown = document.getElementById('dropdown');
+    if (dropdown.style.display === 'none' || dropdown.getAttribute('data-category') !== categoria) {
+      dropdown.innerHTML = getCategoryItems(categoria);
+      dropdown.style.display = 'block';
+      dropdown.setAttribute('data-category', categoria);
+    } else {
+      dropdown.style.display = 'none';
+    }
+  }
+
+  // Funzione per ottenere gli elementi del menu a tendina in base alla categoria selezionata
+  function getCategoryItems(categoria) {
+    switch (categoria) {
+      case 'SPORT':
+        return `
+          <a href="#">Calcio</a><hr>
+          <a href="#">Basket</a><hr>
+          <a href="#">Tennis</a><hr>
+          <a href="#">Atletica</a><hr>
+          <a href="#">Alro sport</a><hr>
+          <a href="#">Alro sport</a><hr>
+          <a href="#">Alro sport</a>
+        `;
+      case 'TEATRO':
+        return `
+          <a href="#">Dramma</a><hr>
+          <a href="#">Commedia</a><hr>
+          <a href="#">Musical</a><hr>
+          <a href="#">Spettacolo_1</a><hr>
+          <a href="#">Spettacolo_2</a><hr>
+          <a href="#">Spettacolo_1</a>
+        `;
+      case 'CINEMA':
+        return `
+          <a href="#">Azione</a><hr>
+          <a href="#">Commedia</a><hr>
+          <a href="#">Drammatico</a><hr>
+          <a href="#">Horror</a><hr>
+          <a href="#">Romantico</a><hr>
+          <a href="#">Cartoni</a>
+        `;
+      case 'DISCO':
+        return `
+          <a href="#">House</a><hr>
+          <a href="#">Techno</a><hr>
+          <a href="#">Hip Hop</a><hr>
+          <a href="#">Commercial</a><hr>
+          <a href="#">Raeggeton</a><hr>
+          <a href="#">Pop</a>
+        `;
+      default:
+        return '';
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
