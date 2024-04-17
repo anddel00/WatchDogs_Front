@@ -8,7 +8,7 @@
         /* Stili CSS per la barra di ricerca e il menu select */
         body {
             width: auto;
-            height: 2000px;
+            height:auto;
             background-color: rgba(255, 131, 0, 0.89);
 
         }
@@ -17,9 +17,8 @@
             text-align: right;
             font-size: 22px;
             font-family: "Nanum Myeongjo",serif;
-            top:2000px;
             margin-bottom: 50px;
-            margin-right: 130px;
+            margin-top: 4500px;
 
 
 
@@ -53,7 +52,7 @@
           text-align: center; /* Allinea con il margine sinistro della barra di ricerca */
           margin-bottom: 2px; /* Spazio inferiore */
           margin-top: 100px;
-          font-size: 32px;
+          font-size: 46px;
           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
           font-family: "Nanum Myeongjo", sans-serif;
           color: white;
@@ -184,7 +183,8 @@
         }
         .container-two{
             margin-left: 120px;
-            margin-top: 350px;
+            margin-top: 380px;
+            margin-bottom: 50px;
             background-color: rgba(255, 131, 0, 0.89);
             background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(234, 168, 108, 0.53) 98%);
             width: 1150px;
@@ -259,8 +259,7 @@
           list-style-type: none;
           padding: 0;
           margin-top: 0;
-            height: 100px;
-          max-height: 150px;
+            height: auto;
           overflow-y: auto;
           border: none;
           border-radius: 30px;
@@ -297,7 +296,7 @@
 
         <div id="dropdown" class="dropdown-nav"></div>
     </div>
-    <p class="header-text"><b>Watchdogs Searchbar</b></p>
+    <p class="header-text"><b>Event Network</b></p>
     <div class="search-container">
         <input type="text" v-model="input" @input="filterItems" class="search-box" name="q" placeholder="Cerca evento...">
         <div class="dropdown-menu" v-if="filteredItems.length > 0">
@@ -312,9 +311,9 @@
 
 </div>
 
-<div class="container-two"><h1 class="homepage-title"><b>Homepage</b></h1>
+<div class="container-two"><h1 class="homepage-title"><b>H o m e p a g e</b></h1>
     <div class="article-1">
-        <h2 class="header-article"><a id="Calcio">#Calcio</a></h2>
+        <h2 class="header-article"><a id="Calcio">#Calcio ⚽ </a></h2>
         <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
             oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
             e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
@@ -322,9 +321,47 @@
             oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
             e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
     </div>
+    <div class="article-1">
+        <h2 class="header-article"><a id="Basket">#Basket 🏀 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+
+    <div class="article-1">
+        <h2 class="header-article"><a id="Tennis">#Tennis 🥎</a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+
     <hr>
     <div class="article-2">
-        <h2 class="header-article"><a id="Dramma">#Dramma</a></h2>
+        <h2 class="header-article"><a id="Dramma">#Dramma 🎭 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-2">
+        <h2 class="header-article"><a id="Musical">#Musical 🎙 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-2">
+        <h2 class="header-article"><a id="Opera">#Opera 🏛️ </a></h2>
         <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
             oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
             e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
@@ -334,7 +371,25 @@
     </div>
     <hr>
     <div class="article-3">
-        <h2 class="header-article"><a id="House">#House</a></h2>
+        <h2 class="header-article"><a id="House">#House 🪩 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-3">
+        <h2 class="header-article"><a id="Techno">#Techno 🎛️ </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-3">
+        <h2 class="header-article"><a id="Hip-Hop">#Hip-Hop 📼 </a></h2>
         <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
             oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
             e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
@@ -345,7 +400,7 @@
 </div>
 
 
-<footer class="firma"><i>Watchdogs</i></footer>
+<p class="firma"><i>Watchdogs</i></p>
 
 <script>
     new Vue({
@@ -401,8 +456,8 @@
         case 'SPORT':
           return `
             <a href="#Calcio">Calcio</a><hr>
-            <a href="#">Basket</a><hr>
-            <a href="#">Tennis</a><hr>
+            <a href="#Basket">Basket</a><hr>
+            <a href="#Tennis">Tennis</a><hr>
             <a href="#">Atletica</a><hr>
             <a href="#">Alro sport</a><hr>
             <a href="#">Alro sport</a><hr>
@@ -411,17 +466,16 @@
         case 'TEATRO':
           return `
             <a href="#Dramma">Dramma</a><hr>
-            <a href="#">Commedia</a><hr>
-            <a href="#">Musical</a><hr>
-            <a href="#">Spettacolo_1</a><hr>
+            <a href="#Musical">Musical</a><hr>
+            <a href="#Opera">Opera</a><hr>
             <a href="#">Spettacolo_2</a><hr>
             <a href="#">Spettacolo_1</a>
           `;
         case 'CINEMA':
           return `
-            <a href="#">Azione</a><hr>
-            <a href="#">Commedia</a><hr>
-            <a href="#">Drammatico</a><hr>
+            <a href="#Azione">Azione</a><hr>
+            <a href="#Commedia">Commedia</a><hr>
+            <a href="#Drammatico">Drammatico</a><hr>
             <a href="#">Horror</a><hr>
             <a href="#">Romantico</a><hr>
             <a href="#">Cartoni</a>
@@ -429,8 +483,8 @@
         case 'DISCO':
           return `
             <a href="#House">House</a><hr>
-            <a href="#">Techno</a><hr>
-            <a href="#">Hip Hop</a><hr>
+            <a href="#Techno">Techno</a><hr>
+            <a href="#Hip-Hop">Hip-Hop</a><hr>
             <a href="#">Commercial</a><hr>
             <a href="#">Raeggeton</a><hr>
             <a href="#">Pop</a>
