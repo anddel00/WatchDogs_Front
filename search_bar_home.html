@@ -8,14 +8,14 @@
     /* Stili CSS per la barra di ricerca e il menu select */
     body {
       height: 2000px;
-      background-color: rgba(62, 86, 162, 0.71);
+      background-color: rgba(255, 131, 0, 0.89);
 
     }
     .firma{
       position: relative;
       text-align: right;
       font-size: 22px;
-      font-family: "Cormorant Garamond",serif;
+      font-family: "Nanum Myeongjo",serif;
       margin-top: 50px;
       margin-right: 130px;
 
@@ -24,8 +24,8 @@
     .container {
       margin: auto;
       margin-top: 10px;
-      background-color: #3E56A2B5;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e7ebfc 60%);
+      background-color: rgba(255, 131, 0, 0.89);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(234, 168, 108, 0.53) 98%);
       width: 80%;
       border: none;
       border-radius: 30px;
@@ -36,63 +36,42 @@
 
 
     }
-.menu-box{
-  border-radius: 15px;
-  border: 1px solid white;
-  height: 30px;
-  padding: 5px;
-  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
   
 }
      /*FONT---FONT---FONT*/
-    .lobster-regular {
-      font-family: "Lobster", sans-serif;
+    .nanum-myeongjo-regular {
+      font-family: "Nanum Myeongjo", serif;
       font-weight: 400;
-      font-style: normal;
-    }
-    .cormorant-garamond-bold {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 700;
       font-style: normal;
     }
 
 
     .header-text {
-      margin-left: 60px; /* Allinea con il margine sinistro della barra di ricerca */
+      text-align: center; /* Allinea con il margine sinistro della barra di ricerca */
       margin-bottom: 2px; /* Spazio inferiore */
-      margin-top: 40px;
-      font-size: 28px;
-      text-shadow: 1px 1px 1px white;
-      font-family: "Lobster", sans-serif;
-    }
-
-
-    .header-nav-text {
-      margin-top: 15px;
-      margin-left: 630px;
-      margin-bottom: 0;
-      position: absolute;
-      text-shadow: 1px 1px 1px white;
-      font-size: 48px;
-      font-family: "Lobster", sans-serif;
+      margin-top: 100px;
+      font-size: 32px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+      font-family: "Nanum Myeongjo", sans-serif;
+      color: white;
     }
 
     .nav {
-      background-color: white;
-      border-radius: 30px;
+      background-color transparent ;
+      border-radius: none;
       padding: 15px 20px; /*Spazio interno*/
       position: absolute;
-      margin-top: 5px;
-      top: 50%;
+      margin-top: 2px;
       right: 1px;
       transform: translate(-50%, -50%);
       width: 500px;
-      left: 850px;
+      left: 950px;
       font-size: 20px;
-      border: 2px solid ;
-      border-bottom: white;
+      font-family: "Nanum Myeongjo", serif;
+      font-palette: white;
+      border: none ;
       border-color: #919090;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      box-shadow: none;
 
     }
 
@@ -101,51 +80,48 @@
       margin: 0;
       padding: 0;
       text-align: center;
+      color: white;
     }
 
     .nav li {
       display: inline-block;
-      margin-right: 20px;
+      margin-right: 2px;
       position: relative;
-    }
-
-    .nav li:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: -10px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      height: 20px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+      color: white;
     }
 
     .nav a {
       text-decoration: none;
       color: black;
-      border-radius: 15px;
-      padding: 5px 10px;
+      margin: 0;
+      border-radius: 0;
+      padding: 5px 5px;
+      color: black;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+
     }
 
     .nav a:hover {
-      background-color: #99aedc;
-      text-decoration: underline;
-      text-shadow: 1px 1px 1px white;
+      background-color: white;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
     }
 
     .search-container {
-      margin-top: 20px; /* Aggiunto margine superiore per spazio */
+      margin-top: 70px; /* Aggiunto margine superiore per spazio */
+      text-align: center;
+      margin-bottom: 50px;
     }
 
     .search-box {
       padding: 8px;
-      width: 200px;
+      width: 400px;
       border: 1px solid;
       border-right: none;
       border-radius: 30px 0 0 30px; /* Arrotondamento solo per gli angoli sinistri */
       font-size: 16px;
       margin-left: 30px;
-      margin-right: none;
+      margin-right: 0;
       margin-top: 2px;
       border-color: #919090;
       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
@@ -173,50 +149,41 @@
       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
-    .separator {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      margin-left: 120px;
-      font-size: 22px;
-      text-shadow: 1px 1px 1px white;
-      font-family: "Lobster", sans-serif;
-    }
-
     /*menu a tendina */
-    .dropdown-menu {
+    .dropdown-nav {
       display: none;
       position: absolute;
       background-color: rgba(255, 255, 255, 0.8); /* trasparente */
-      border: 2px solid;
-      border-top: white;
+      box-shadow: 0 2px rgba(0, 0, 0, 0.5);
+      border: none;
       border-color:#919090 ;
       border-radius: 30px;
       padding: 5px 10px;
-      max-height: 200px;
+      max-height: 150px;
       overflow-y: auto;
       margin-bottom: 10px;
       z-index: 1000;
-      width: 520px;
-      left: -1px;
+      width: 300px;
+      left: 120px;
       top: calc(100% + 3px); /* Posiziona il menu a tendina sotto il menu di navigazione */
     }
-    .dropdown-menu a {
+    .dropdown-nav a {
       color: black;
       border-radius: 8px;
       padding: 5px 10px;
       display: block;
     }
 
-    .dropdown-menu a:hover {
+    .dropdown-nav a:hover {
       background-color: #ffffff; /* Sfondo bianco al passaggio */
       text-decoration: none;
-      text-shadow: 1px 1px 1px #99aedc;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
     }
     .container-two{
       margin: auto;
       margin-top: 40px;
-      background-color: #3E56A2B5;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e7ebfc 60%);
+      background-color: rgba(255, 131, 0, 0.89);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(234, 168, 108, 0.53) 98%);
       width: 80%;
       height: 1200px;
       border: none;
@@ -228,24 +195,25 @@
     }
     .homepage-title{
       font-size: 52px;
-      text-shadow: 1px 1px 1px white;
-      font-family: "Lobster", sans-serif;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+      font-family: "Nanum Myeongjo", sans-serif;
       text-align: center;
       position: relative;
       margin-top: 50px;
+      color: white;
 
     }
     .header-article{
       font-size: 22px;
-      text-shadow: 1px 1px 1px white;
-      font-family: "Lobster", sans-serif;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+      font-family: "Nanum Myeongjo", sans-serif;
       text-align: left;
       margin-left: 30px;
     }
     .text-article{
       font-size: 16px;
-      text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.68);
-      font-family: "Cormorant Garamond", serif;
+      text-shadow: none;
+      font-family: "Nanum Myeongjo", serif;
       margin-left: 30px;
     }
     .article-1 {
@@ -263,21 +231,41 @@
       margin-left: 30px;
 
     }
+    .dropdown-menu {
+      position: absolute;
+      margin-top: 5px;
+      width: 40%;
+      margin-left: 350px;
+    }
+    .dropdown-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      max-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .dropdown-menu li {
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .dropdown-menu li:hover {
+      background-color: #f5f5f5;
+    }
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 <div class="container">
-  <p class="header-nav-text"><b>Potrebbero interessarti</b></p>
   <div class="nav">
     <ul>
       <li><a href="#" onclick="toggleDropdown('SPORT')"><b>SPORT</b></a></li>
@@ -286,34 +274,24 @@
       <li><a href="#" onclick="toggleDropdown('DISCO')"><b>DISCO</b></a></li>
     </ul>
 
-    <div id="dropdown" class="dropdown-menu"></div>
+    <div id="dropdown" class="dropdown-nav"></div>
   </div>
-  <p class="header-text"><b>Digita qui il tuo evento</b></p>
+  <p class="header-text"><b>Watchdogs Searchbar</b></p>
   <div class="search-container">
-    <form action="/search" method="get">
-      <input type="text" class="search-box" name="q" placeholder="Cerca evento...">
+     <input type="text" v-model="input" @input="filterItems" class="search-box" name="q" placeholder="Cerca evento...">
+    <div class="dropdown-menu" v-if="filteredItems.length > 0">
+      <ul>
+        <li v-for="item in filteredItems" :key="item.id" @click="selectItem(item)">
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
       <button type="submit" class="search-button">Vai</button>
-    </form>
   </div>
-  <div class="separator">oppure</div>
-  <div class="menu-container">
-    <label for="evento" style="margin-right: 10px;">Scegli un tipo di evento:</label>
-    <select id="evento" class="menu-box" name="Evento">
-      <optgroup label="Culturale">
-        <option value="Spettacolo teatrale">Spettacolo teatrale</option>
-        <option value="Mostra d'arte">Mostra d'arte</option>
-        <option value="Seminario">Seminario</option>
-      </optgroup>
-      <optgroup label="Divertimento">
-        <option value="Concerto">Concerto</option>
-        <option value="Festa a tema">Festa a tema</option>
-        <option value="Serata disco">Serata disco</option>
-      </optgroup>
-    </select>
-  </div>
+
 </div>
 
-<div class="container-two"><h1 class="homepage-title"><b>Questa potrebbe essere l'homepage</b></h1>
+<div class="container-two"><h1 class="homepage-title"><b>Homepage</b></h1>
   <div class="article-1">
     <h2 class="header-article">Questo potrebbe essere un post</h2>
     <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
@@ -338,6 +316,41 @@
 <footer class="firma"><i>Watchdogs</i></footer>
 
 <script>
+  new Vue({
+    el: '#app',
+
+    data: {
+      input: '',
+      items: [
+        { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
+        { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
+        { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
+        { id: 4, name: 'Sport' , description: '' },
+        { id: 5, name: 'Teatro' , description: '' },
+        { id: 6, name: 'Cinema' , description: '' }
+      ],
+      filteredItems: []
+    },
+
+    methods: {
+      filterItems() {
+        if (this.input.trim() === '') {
+          this.filteredItems = [];
+        } else {
+          const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
+          this.filteredItems = this.items.filter(item =>
+                  item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
+          );
+        }
+      },
+      selectItem(item) {
+        this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
+        this.filteredItems = []; // Nascondi la tendina dopo la selezione
+      }
+    }
+
+  });
+
   // Funzione per mostrare/nascondere il menu a tendina
   function toggleDropdown(categoria) {
     var dropdown = document.getElementById('dropdown');
@@ -394,6 +407,44 @@
         return '';
     }
   }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+
+  new Vue({
+    el: '#app',
+
+    data: {
+      input: '',
+      items: [
+        { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
+        { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
+        { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
+        { id: 4, name: 'Sport' , description: '' },
+        { id: 5, name: 'Teatro' , description: '' },
+        { id: 6, name: 'Cinema' , description: '' }
+      ],
+      filteredItems: []
+    },
+
+    methods: {
+      filterItems() {
+        if (this.input.trim() === '') {
+          this.filteredItems = [];
+        } else {
+          const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
+          this.filteredItems = this.items.filter(item =>
+                  item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
+          );
+        }
+      },
+      selectItem(item) {
+        this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
+        this.filteredItems = []; // Nascondi la tendina dopo la selezione
+      }
+    }
+
+  });
 </script>
 
 </body>
