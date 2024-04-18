@@ -288,10 +288,10 @@
 <div id="app" class="container">
     <div class="nav">
         <ul>
-            <li><a href="#" onclick="toggleDropdown('SPORT')"><b>SPORT</b></a></li>
-            <li><a href="#" onclick="toggleDropdown('TEATRO')"><b>TEATRO</b></a></li>
-            <li><a href="#" onclick="toggleDropdown('CINEMA')"><b>CINEMA</b></a></li>
-            <li><a href="#" onclick="toggleDropdown('DISCO')"><b>DISCO</b></a></li>
+            <li><a href="#" @click="toggleDropdown('SPORT')"><b>SPORT</b></a></li>
+            <li><a href="#" @click="toggleDropdown('TEATRO')"><b>TEATRO</b></a></li>
+            <li><a href="#" @click="toggleDropdown('CINEMA')"><b>CINEMA</b></a></li>
+            <li><a href="#" @click="toggleDropdown('DISCO')"><b>DISCO</b></a></li>
         </ul>
 
         <div id="dropdown" class="dropdown-nav"></div>
@@ -301,8 +301,8 @@
         <input type="text" v-model="input" @input="filterItems" class="search-box" name="q" placeholder="Cerca evento...">
         <div class="dropdown-menu" v-if="filteredItems.length > 0">
             <ul>
-                <li v-for="item in filteredItems" :key="item.id" @click="selectItem(item)">
-                    {{ item.name }}
+                <li v-for="suggestion in suggestions" :key="suggestions" @click="selectSuggestion(suggestion)">
+                    {{ suggestion }}
                 </li>
             </ul>
         </div>
@@ -403,41 +403,6 @@
 <p class="firma"><i>Watchdogs</i></p>
 
 <script>
-    new Vue({
-      el: '#app',
-
-      data: {
-        input: '',
-        items: [
-          { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
-          { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
-          { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
-          { id: 4, name: 'Sport' , description: '' },
-          { id: 5, name: 'Teatro' , description: '' },
-          { id: 6, name: 'Cinema' , description: '' }
-        ],
-        filteredItems: []
-      },
-
-      methods: {
-        filterItems() {
-          if (this.input.trim() === '') {
-            this.filteredItems = [];
-          } else {
-            const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
-            this.filteredItems = this.items.filter(item =>
-                    item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
-            );
-          }
-        },
-        selectItem(item) {
-          this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
-          this.filteredItems = []; // Nascondi la tendina dopo la selezione
-        }
-      }
-
-    });
-
     // Funzione per mostrare/nascondere il menu a tendina
     function toggleDropdown(categoria) {
       var dropdown = document.getElementById('dropdown');
@@ -495,6 +460,7 @@
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 
     new Vue({
@@ -502,30 +468,50 @@
 
       data: {
         input: '',
-        items: [
-          { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
-          { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
-          { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
-          { id: 4, name: 'Sport' , description: '' },
-          { id: 5, name: 'Teatro' , description: '' },
-          { id: 6, name: 'Cinema' , description: '' }
-        ],
-        filteredItems: []
+        items: [],
+        filteredItems: [],
+        suggestions: [] //array per memorizzare i suggerimenti
+      },
+
+      created() {
+        this.loadItems();
       },
 
       methods: {
+        loadItems() {
+            //Effettua una chiamata API per caricare tutti gli elementi dal backend
+            axios.get('http://localhost:8080/api/items')
+            .then(response => {
+                this.items = response.data;
+            })
+            .catch(error => {
+                console.error('Errore durante il caricamento degli elementi', error);
+            });
+        },
         filterItems() {
           if (this.input.trim() === '') {
             this.filteredItems = [];
           } else {
-            const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
-            this.filteredItems = this.items.filter(item =>
-                    item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
-            );
+                const word = this.input.trim();
+                // Effettua una chiamata API di ricerca con la parola chiave
+                axios.get('http://localhost:8080/api/search?word=$word=${word}')
+                    .then(response => {
+                        this.filteredItems = response.data;
+                    })
+                    .catch(error => {
+                        console.error('Errore durante la ricerca degli elementi:', error);
+                    });
+                axios.get('http://localhost:8080/api/suggestions?word=$word{word}')
+                    .then(response => {
+                        this.suggestions = response.data;
+                    })
+                    .catch(error => {
+                        console.error('Errore durante il recupero dei suggerimenti:',error);
+                    });
           }
         },
         selectItem(item) {
-          this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
+          this.input = item; // Assegna il nome dell'oggetto alla casella di ricerca
           this.filteredItems = []; // Nascondi la tendina dopo la selezione
         }
       }
