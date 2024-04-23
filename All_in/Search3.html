@@ -385,6 +385,7 @@
                 this.input = suggestion;
                 // Chiama la funzione 'searchEvents' per avviare la ricerca
                 this.searchEvents();
+                this.suggestions = []; // Chiude la tendina dei suggerimenti
             },
 
             filterItems() {
@@ -409,6 +410,7 @@
                     .then(response => {
                         // Aggiorna l'array di risultati filtrati con i dati ricevuti dal backend
                         this.filteredItems = response.data;
+                        this.suggestions = []; // Chiude la tendina dei suggerimenti
                     })
                     .catch(error => {
                         console.error('Errore durante la ricerca degli eventi:', error);
