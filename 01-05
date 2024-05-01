@@ -290,7 +290,6 @@
         </div>
     </div>
 
-
     <div class="container-two"><h1 class="homepage-title"><b>H o m e p a g e</b></h1>
 
         <div class="post-container" v-show="springBootData.length === 0 && filteredItems.length > 0">
@@ -372,10 +371,7 @@
 
         methods: {
             sendRequestToSpringBoot(categoria) {
-                const params = new URLSearchParams();
-                params.append('categoria', categoria);
-
-                axios.put('http://localhost:8080/api/', params)
+                axios.put('http://localhost:8080/api/', { categoria })
                     .then(response => {
                         // Aggiorna l'array con i dati ricevuti da Spring Boot
                         this.springBootData = response.data;
@@ -383,13 +379,13 @@
                     .catch(error => {
                         console.error('Errore durante l\'invio della richiesta:', error);
                     });
-            },
+            }
 
             selectSuggestion(suggestion) {
                 // Assegna il suggerimento selezionato alla variabile 'input'
                 this.input = suggestion;
                 // Nascondo i suggerimenti
-                this.suggestion = [];
+                this.suggestions = [];
                 // Chiama la funzione 'searchEvents' per avviare la ricerca
                 this.searchEvents();
             },
