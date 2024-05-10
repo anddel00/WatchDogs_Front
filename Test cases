@@ -16,14 +16,6 @@ Ecco una descrizione dettagliata dei casi di test per l'applicazione web fornita
             Verificare che vengano visualizzati i risultati correlati al termine di ricerca inserito.
             Verificare che i risultati contengano informazioni accurate sugli eventi, inclusi il nome dell'evento, l'organizzatore, il luogo, la data e la descrizione.
 
-    Test di accessibilità:
-        Descrizione: Questo test verifica che l'applicazione sia accessibile per utenti con disabilità e che sia compatibile con tecnologie assistive.
-        Procedure:
-            Utilizzare un lettore di schermo per navigare attraverso l'applicazione.
-            Verificare che tutte le informazioni cruciali siano correttamente lette dal lettore di schermo.
-            Verificare che i link, i pulsanti e gli elementi interattivi siano facilmente individuabili e utilizzabili tramite tastiera.
-            Verificare che l'interfaccia utente abbia un contrasto sufficiente per essere leggibile per utenti con disabilità visive.
-
     Test di gestione degli errori:
         Descrizione: Questo test verifica che l'applicazione gestisca correttamente gli errori e fornisca feedback utente chiaro in caso di problemi.
         Procedure:
