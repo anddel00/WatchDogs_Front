@@ -1,14 +1,5 @@
-Architettura monolitica:
-
-    Descrizione: In un'architettura monolitica, l'intera applicazione è sviluppata come un'unica unità. Tutte le funzionalità, inclusi il front-end, il back-end e il database, sono integrate in un unico pacchetto.
-    Vantaggi:
-        Semplicità di sviluppo e distribuzione.
-        Facilità di testing e debugging.
-        Prestazioni potenzialmente migliori per applicazioni di piccole e medie dimensioni.
-    Svantaggi:
-        Scalabilità limitata: è difficile scalare parti specifiche dell'applicazione in modo indipendente.
-        Maggiore complessità e difficoltà di manutenzione per applicazioni di grandi dimensioni.
-        Limitata flessibilità nell'adozione di tecnologie e framework diversi per diverse parti dell'applicazione.
+struttura separata
+frontend-backend (Vuejs + Springboot)
 
 
 Elenco delle funzionalità implementate nel codice:
