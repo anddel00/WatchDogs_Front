@@ -1,0 +1,41 @@
+Requisiti Funzionali:
+
+    Ricerca degli Eventi:
+        Gli utenti possono cercare eventi inserendo del testo nella barra di ricerca.
+        I suggerimenti devono essere visibili quando ha inizio la digitazione nella barra di ricerca.
+        La ricerca viene attivata quando l'utente preme il pulsante "Vai" o preme il tasto "Invio" sulla tastiera dopo aver inserito del testo.
+        I risultati della ricerca vengono visualizzati nella sezione dei risultati della homepage.
+
+    Filtraggio degli Eventi:
+        Gli utenti possono filtrare gli eventi per categoria utilizzando il menu a tendina dei filtri.
+        Le categorie disponibili per il filtraggio includono Sport, Cinema, Teatro e Musica, ciascuna con ulteriori sottocategorie.
+        Il filtraggio viene attivato quando l'utente seleziona una categoria o una sottocategoria dal menu a tendina.
+        I risultati filtrati vengono visualizzati nella sezione dei risultati della homepage.
+
+Requisiti Non Funzionali:
+
+    Usabilità:
+        Il layout e il design dell'interfaccia utente devono essere intuitivi e facili da comprendere per gli utenti.
+        L'esperienza utente deve essere fluida, con feedback chiari sull'azione dell'utente (ad esempio, ricerca avviata con successo, nessun risultato trovato, ecc.).
+        Il menu a tendina dei filtri e la barra di ricerca devono essere visibili e accessibili.
+
+    Prestazioni:
+        Il sistema deve essere reattivo, con tempi di caricamento minimi per i risultati della ricerca e i suggerimenti.
+        Le richieste di rete devono essere gestite in modo efficiente per ridurre il ritardo nell'aggiornamento dei risultati della ricerca.
+
+    Compatibilità del Browser:
+        Il codice deve essere compatibile con i principali browser web, inclusi Chrome, Firefox, Safari e Edge.
+        Il layout e lo stile devono essere coerenti su diverse piattaforme e risoluzioni dello schermo.
+
+Requisiti Impliciti:
+
+    Manutenibilità:
+        Il codice deve essere organizzato e commentato in modo chiaro per agevolare la comprensione e la manutenzione future.
+        Le variabili, le funzioni e le sezioni del codice devono essere nominate in modo significativo.
+
+    Estensibilità:
+        Il codice deve essere progettato in modo flessibile per consentire l'aggiunta di nuove funzionalità o categorie di eventi in futuro.
+        Le modifiche al layout o al design dell'interfaccia utente devono essere facili da implementare senza dover riscrivere il codice esistente.
+
+    Affidabilità:
+        Il sistema deve gestire correttamente eventuali errori o eccezioni durante il recupero dei dati o l'esecuzione delle operazioni di ricerca e filtraggio.
