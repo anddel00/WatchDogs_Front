@@ -1,0 +1,39 @@
+Ecco una descrizione dettagliata dei casi di test per l'applicazione web fornita:
+
+    Test di navigazione dei filtri:
+        Descrizione: Questo test verifica che i filtri del menu siano navigabili e che la selezione delle opzioni di filtro produca i risultati attesi.
+        Procedure:
+            Fare clic sul pulsante "Filtri" per aprire il menu dei filtri.
+            Navigare attraverso le opzioni di filtro per le varie categorie (Sport, Cinema, Teatro, Musica).
+            Selezionare una categoria e verificare che vengano visualizzati i sottocategorie corrispondenti.
+            Selezionare una sottocategoria e verificare che vengano visualizzati i risultati relativi alla categoria e sottocategoria selezionate.
+
+    Test di ricerca degli eventi:
+        Descrizione: Questo test verifica che la funzionalità di ricerca restituisca i risultati attesi in base all'input dell'utente.
+        Procedure:
+            Inserire un termine di ricerca nella barra di ricerca.
+            Premere il pulsante di ricerca o premere "Invio" sulla tastiera.
+            Verificare che vengano visualizzati i risultati correlati al termine di ricerca inserito.
+            Verificare che i risultati contengano informazioni accurate sugli eventi, inclusi il nome dell'evento, l'organizzatore, il luogo, la data e la descrizione.
+
+    Test di accessibilità:
+        Descrizione: Questo test verifica che l'applicazione sia accessibile per utenti con disabilità e che sia compatibile con tecnologie assistive.
+        Procedure:
+            Utilizzare un lettore di schermo per navigare attraverso l'applicazione.
+            Verificare che tutte le informazioni cruciali siano correttamente lette dal lettore di schermo.
+            Verificare che i link, i pulsanti e gli elementi interattivi siano facilmente individuabili e utilizzabili tramite tastiera.
+            Verificare che l'interfaccia utente abbia un contrasto sufficiente per essere leggibile per utenti con disabilità visive.
+
+    Test di gestione degli errori:
+        Descrizione: Questo test verifica che l'applicazione gestisca correttamente gli errori e fornisca feedback utente chiaro in caso di problemi.
+        Procedure:
+            Provare a cercare un termine che non produce risultati.
+            Verificare che venga visualizzato un messaggio appropriato indicando che non sono stati trovati risultati.
+            Provare a cercare mentre la connessione di rete è disconnessa.
+            Verificare che venga visualizzato un messaggio di errore chiaro indicando il problema di connessione.
+
+    Test di compatibilità del browser:
+        Descrizione: Questo test verifica che l'applicazione sia compatibile con una varietà di browser web comuni.
+        Procedure:
+            Aprire l'applicazione utilizzando browser web diversi come Chrome, Firefox, Safari e Edge.
+            Verificare che l'applicazione funzioni correttamente su ciascun browser, inclusa la corretta visualizzazione dell'interfaccia utente e il funzionamento delle funzionalità interattive.
