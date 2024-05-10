@@ -1,0 +1,24 @@
+La funzionalità principale del codice è consentire agli utenti di cercare eventi utilizzando una barra di ricerca e filtrare gli eventi in base a categorie predefinite utilizzando un menu a discesa.
+
+    Barra di ricerca:
+        La barra di ricerca permette agli utenti di inserire testo per cercare eventi.
+        Utilizzando Vue.js e Axios, il testo inserito viene inviato al backend per ottenere suggerimenti di ricerca in tempo reale.
+        I suggerimenti vengono visualizzati sotto la barra di ricerca mentre l'utente digita.
+
+    Menu dei filtri:
+        Il menu dei filtri offre categorie predefinite come Sport, Cinema, Teatro e Musica.
+        Le categorie sono selezionabili e offrono sottocategorie associate.
+        Quando si passa sopra a una categoria principale, vengono visualizzate le sottocategorie associate.
+        La selezione di una categoria o sottocategoria invia una richiesta al backend per ottenere gli eventi corrispondenti.
+
+    Visualizzazione degli eventi:
+        I risultati della ricerca o del filtro degli eventi vengono visualizzati in una sezione dedicata sotto la barra di ricerca e il menu dei filtri.
+        Per ogni evento, vengono mostrate informazioni dettagliate come nome, organizzatore, luogo, data e descrizione.
+
+    Integrazione con Vue.js e Axios:
+        Vue.js viene utilizzato per gestire la logica dell'interfaccia utente, tra cui l'aggiornamento dinamico dei suggerimenti di ricerca e la visualizzazione dei risultati degli eventi.
+        Axios viene utilizzato per effettuare richieste HTTP al server per ottenere suggerimenti di ricerca e risultati degli eventi in base all'input dell'utente e alle selezioni del filtro.
+
+    Interazione utente:
+        Gli utenti possono cercare eventi digitando nel campo di ricerca o selezionando categorie e sottocategorie dal menu a discesa dei filtri.
+        I suggerimenti di ricerca in tempo reale forniscono un'esperienza interattiva e immediata durante la digitazione.
