@@ -1,0 +1,49 @@
+Architettura monolitica:
+
+    Descrizione: In un'architettura monolitica, l'intera applicazione è sviluppata come un'unica unità. Tutte le funzionalità, inclusi il front-end, il back-end e il database, sono integrate in un unico pacchetto.
+    Vantaggi:
+        Semplicità di sviluppo e distribuzione.
+        Facilità di testing e debugging.
+        Prestazioni potenzialmente migliori per applicazioni di piccole e medie dimensioni.
+    Svantaggi:
+        Scalabilità limitata: è difficile scalare parti specifiche dell'applicazione in modo indipendente.
+        Maggiore complessità e difficoltà di manutenzione per applicazioni di grandi dimensioni.
+        Limitata flessibilità nell'adozione di tecnologie e framework diversi per diverse parti dell'applicazione.
+
+
+Elenco delle funzionalità implementate nel codice:
+
+    Barra di ricerca:
+        Consente all'utente di inserire un testo di ricerca.
+        Filtra gli elementi in base al testo inserito dall'utente.
+        Mostra suggerimenti di ricerca mentre l'utente digita.
+
+    Menu dei filtri:
+        Fornisce categorie di filtro per gli eventi, come Sport, Cinema, Teatro e Musica.
+        Permette di selezionare una categoria principale.
+        Mostra sottocategorie quando si passa sopra a una categoria principale.
+        Invia richieste al server per ottenere eventi filtrati in base alla categoria selezionata.
+
+    Visualizzazione degli eventi:
+        Mostra i risultati della ricerca o del filtro degli eventi.
+        Visualizza informazioni dettagliate sugli eventi, come nome, organizzatore, luogo, data e descrizione.
+
+    Pulsante di toggle dei filtri:
+        Permette di aprire e chiudere il menu dei filtri.
+
+    Stile e layout:
+        Utilizza stili CSS per la formattazione del layout e l'aspetto grafico dell'applicazione.
+        Utilizza un font personalizzato fornito da Google Fonts per l'aspetto estetico.
+
+    Integrazione con Vue.js e Axios:
+        Utilizza Vue.js per gestire la logica dell'interfaccia utente e la comunicazione con il back-end.
+        Utilizza Axios per effettuare richieste HTTP al server.
+
+    Gestione degli errori:
+        Gestisce gli errori durante le richieste HTTP al server, mostrando messaggi di errore appropriati all'utente.
+
+    Risorse esterne:
+        Importa librerie esterne come Vue.js e Axios per facilitare lo sviluppo e l'interazione con il back-end.
+
+    Compatibilità cross-browser:
+        Utilizza un DOCTYPE HTML valido e definisce il charset e il viewport per garantire la compatibilità cross-browser e la corretta visualizzazione su dispositivi diversi.
