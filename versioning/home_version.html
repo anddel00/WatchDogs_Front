@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca</title>
+    <style>
+        /* Stili CSS per la barra di ricerca e il menu select */
+        body {
+            width: auto;
+            height:auto;
+            background-color: rgba(255, 131, 0, 0.89);
+
+        }
+        .firma{
+            position: absolute;
+            text-align: right;
+            font-size: 22px;
+            font-family: "Nanum Myeongjo",serif;
+            margin-bottom: 50px;
+            margin-top: 4500px;
+
+
+
+        }
+        .container {
+            margin-top: 10px;
+            background-color: rgba(255, 131, 0, 0.89);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(234, 168, 108, 0.53) 98%);
+            width: 1150px;
+            border: none;
+            border-radius: 30px;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 0 1px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            position: absolute;
+            margin-left: 120px;
+
+
+        }
+
+    }
+         /*FONT---FONT---FONT*/
+        .nanum-myeongjo-regular {
+          font-family: "Nanum Myeongjo", serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+
+        .header-text {
+          text-align: center; /* Allinea con il margine sinistro della barra di ricerca */
+          margin-bottom: 2px; /* Spazio inferiore */
+          margin-top: 100px;
+          font-size: 46px;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+          font-family: "Nanum Myeongjo", sans-serif;
+          color: white;
+        }
+
+        .nav {
+          background-color:transparent ;
+          border-radius: none;
+          padding: 15px 20px; /*Spazio interno*/
+          position: absolute;
+          margin-top: 2px;
+          right: 1px;
+          transform: translate(-50%, -50%);
+          width: 500px;
+          left: 950px;
+          font-size: 20px;
+          font-family: "Nanum Myeongjo", serif;
+          font-palette: white;
+          border: none ;
+          border-color: #919090;
+          box-shadow: none;
+
+        }
+
+        .nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          color: white;
+        }
+
+        .nav li {
+          display: inline-block;
+          margin-right: 2px;
+          position: relative;
+          color: white;
+        }
+
+        .nav a {
+          text-decoration: none;
+          color: black;
+          margin: 0;
+          border-radius: 0;
+          padding: 5px 5px;
+          color: black;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+
+        }
+
+        .nav a:hover {
+          background-color: white;
+          text-decoration: none;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+        }
+
+        .search-container {
+          margin-top: 70px; /* Aggiunto margine superiore per spazio */
+          text-align: center;
+          margin-bottom: 50px;
+        }
+
+        .search-box {
+            font-family: "Nanum Myeongjo", sans-serif;
+          padding: 8px;
+          width: 400px;
+          border: 1px solid;
+          border-right: none;
+          border-radius: 30px 0 0 30px; /* Arrotondamento solo per gli angoli sinistri */
+          font-size: 16px;
+          margin-left: 30px;
+          margin-right: 0;
+          margin-top: 2px;
+          border-color: #919090;
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .search-box:focus {
+          /* Assottigliare il bordo blu quando la barra di ricerca ha il focus */
+          outline: 1px solid #578aec;
+        }
+
+
+        .search-button {
+          padding: 8px 16px;
+          color:white ;
+          background-color: #578aec;
+          border: 1px solid #919090;
+          border-left: none;
+          border-radius: 0 30px 30px 0;
+          cursor: pointer;
+          font-size: 16px;
+          margin-left: -6px;
+        }
+
+        .search-button:hover {
+          background-color: #5775be;
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /*menu a tendina */
+        .dropdown-nav {
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.8); /* trasparente */
+          box-shadow: 0 2px rgba(0, 0, 0, 0.5);
+          border: none;
+          border-color:#919090 ;
+          border-radius: 30px;
+          padding: 5px 10px;
+          max-height: 150px;
+          overflow-y: auto;
+          margin-bottom: 10px;
+          z-index: 1000;
+          width: 300px;
+          left: 120px;
+          top: calc(100% + 3px); /* Posiziona il menu a tendina sotto il menu di navigazione */
+        }
+        .dropdown-nav a {
+          color: black;
+          border-radius: 8px;
+          padding: 5px 10px;
+          display: block;
+        }
+
+        .dropdown-nav a:hover {
+          background-color: #ffffff; /* Sfondo bianco al passaggio */
+          text-decoration: none;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+        }
+        .container-two{
+            margin-left: 120px;
+            margin-top: 380px;
+            margin-bottom: 50px;
+            background-color: rgba(255, 131, 0, 0.89);
+            background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(234, 168, 108, 0.53) 98%);
+            width: 1150px;
+            height: auto;
+            border: none;
+            border-radius: 30px;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 1px 0 rgba(0, 0, 0, 0.5);
+            text-align: left;
+            position: absolute;
+            z-index: -1;
+        }
+        .homepage-title{
+          font-size: 52px;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+          font-family: "Nanum Myeongjo", serif;
+          text-align: center;
+          position: relative;
+          margin-top: 50px;
+          color: white;
+
+        }
+        .header-article{
+          font-size: 22px;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.53);
+          font-family: "Nanum Myeongjo", sans-serif;
+          text-align: left;
+          margin-left: 30px;
+        }
+        .text-article-right{
+            font-size: 16px;
+            text-shadow: none;
+            font-family: "Nanum Myeongjo", serif;
+            margin-left: 30px;
+        }
+
+        .text-article-right li{
+            text-align: left;
+            display:block;
+            background-color: white;
+            margin-bottom: 8px;
+            padding: 2px;
+        }
+        .text-article-right li:last-child:hover{
+            background-color: transparent;
+        }
+        .text-article-right a{
+            color: black;
+        }
+
+        .text-article{
+          font-size: 16px;
+          text-shadow: none;
+          font-family: "Nanum Myeongjo", serif;
+          margin-left: 30px;
+        }
+        .article-1 {
+            position: relative;
+            text-align: justify;
+            max-width: 350px;
+            margin-top: 70px;
+            margin-left: 30px;
+            margin-bottom: 50px;
+        }
+        .article-1-right{
+            position: absolute;
+            margin-left: 700px;
+            max-width: 500px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: auto;
+            font-family: "Nanum Myeongjo", sans-serif;
+            font-size: 16px;
+        }
+        .article-2{
+            position: relative;
+            text-align: justify;
+            max-width: 350px;
+            margin-top: 70px;
+            margin-left: 30px;
+            margin-bottom: 50px;
+
+        }
+
+        .article-3{
+            position: relative;
+            text-align: justify;
+            max-width: 350px;
+            margin-top: 70px;
+            margin-left: 30px;
+            margin-bottom: 50px;
+
+
+        }
+
+        .dropdown-search {
+          position: absolute;
+            border: none;
+          margin-top: -1px;
+          width: 460px;
+          margin-left: 360px;
+        }
+        .dropdown-search ul {
+          list-style-type: none;
+          padding: 0;
+          margin-top: 0;
+            height: auto;
+          overflow-y: auto;
+          border: none;
+          border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 0 rgba(0, 0, 0, 0.5);
+        }
+        .dropdown-search li {
+            font-family: "Nanum Myeongjo", sans-serif;
+            text-align: left;
+          padding: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        .dropdown-search li:hover {
+          background-color: white;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="app" class="container">
+    <div class="nav">
+        <ul>
+            <li><a href="#" onclick="toggleDropdown('SPORT')"><b>SPORT</b></a></li>
+            <li><a href="#" onclick="toggleDropdown('TEATRO')"><b>TEATRO</b></a></li>
+            <li><a href="#" onclick="toggleDropdown('CINEMA')"><b>CINEMA</b></a></li>
+            <li><a href="#" onclick="toggleDropdown('DISCO')"><b>DISCO</b></a></li>
+        </ul>
+
+        <div id="dropdown" class="dropdown-nav"></div>
+    </div>
+    <p class="header-text"><b>Event Network</b></p>
+    <div class="search-container">
+        <input type="text" v-model="input" @input="filterItems" class="search-box" name="q" placeholder="Cerca evento...">
+        <div class="dropdown-menu" v-if="filteredItems.length > 0">
+            <ul>
+                <li v-for="item in filteredItems" :key="item.id" @click="selectItem(item)">
+                    {{ item.name }}
+                </li>
+            </ul>
+        </div>
+        <button type="submit" class="search-button">Vai</button>
+    </div>
+
+</div>
+
+<div class="container-two"><h1 class="homepage-title"><b>H o m e p a g e</b></h1>
+    <div class="article-1-right">
+        <h2 class="header-article">Informazioni utili sull'evento</h2>
+
+        <ul class="text-article-right">
+            <li>Luogo dell'evento</li>
+            <li>Data e ora dell'evento</li>
+            <li><a href="https://www.ticketone.it">Acquista qui i biglietti!</a></li>
+        </ul>
+    </div>
+    <div class="article-1">
+        <h2 class="header-article"><a id="Calcio">#Calcio ⚽ </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+
+    </div>
+    <div class="article-1-right">
+        <h2 class="header-article">Informazioni utili sull'evento</h2>
+
+        <ul class="text-article-right">
+            <li>Luogo dell'evento</li>
+            <li>Data e ora dell'evento</li>
+            <li><a href="https://www.ticketone.it">Acquista qui i biglietti!</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="article-1">
+        <h2 class="header-article"><a id="Basket">#Basket 🏀 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+
+    <div class="article-1">
+        <h2 class="header-article"><a id="Tennis">#Tennis 🥎</a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo.A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+
+    </div>
+
+    <hr>
+    <div class="article-2">
+        <h2 class="header-article"><a id="Dramma">#Dramma 🎭 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-2">
+        <h2 class="header-article"><a id="Musical">#Musical 🎙 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-2">
+        <h2 class="header-article"><a id="Opera">#Opera 🏛️ </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <hr>
+    <div class="article-3">
+        <h2 class="header-article"><a id="House">#House 🪩 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-3">
+        <h2 class="header-article"><a id="Techno">#Techno 🎛️ </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+    <div class="article-3">
+        <h2 class="header-article"><a id="Hip-Hop">#Hip-Hop 📼 </a></h2>
+        <p class="text-article">A questo post potremmo collegare il menù nav, oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. A questo post potremmo collegare il menù nav,
+            oppure il menu a tendina (quello di sinistra),
+            oppure potremmo scriverci quello che vogliamo solamente per abbellire il tutto. Si possono aggiungere immagini, link,
+            e altre cose utili per la pagina stessa, senza spendere troppo tempo. Possiamo anche inserire immagini nello <b>spazio vuoto</b> a destra</p>
+    </div>
+
+</div>
+
+
+<p class="firma"><i>Watchdogs</i></p>
+
+<script>
+    new Vue({
+      el: '#app',
+
+      data: {
+        input: '',
+        items: [
+          { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
+          { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
+          { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
+          { id: 4, name: 'Sport' , description: '' },
+          { id: 5, name: 'Teatro' , description: '' },
+          { id: 6, name: 'Cinema' , description: '' }
+        ],
+        filteredItems: []
+      },
+
+      methods: {
+        filterItems() {
+          if (this.input.trim() === '') {
+            this.filteredItems = [];
+          } else {
+            const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
+            this.filteredItems = this.items.filter(item =>
+                    item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
+            );
+          }
+        },
+        selectItem(item) {
+          this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
+          this.filteredItems = []; // Nascondi la tendina dopo la selezione
+        }
+      }
+
+    });
+
+    // Funzione per mostrare/nascondere il menu a tendina
+    function toggleDropdown(categoria) {
+      var dropdown = document.getElementById('dropdown');
+      if (dropdown.style.display === 'none' || dropdown.getAttribute('data-category') !== categoria) {
+        dropdown.innerHTML = getCategoryItems(categoria);
+        dropdown.style.display = 'block';
+        dropdown.setAttribute('data-category', categoria);
+      } else {
+        dropdown.style.display = 'none';
+      }
+    }
+
+    // Funzione per ottenere gli elementi del menu a tendina in base alla categoria selezionata
+    function getCategoryItems(categoria) {
+      switch (categoria) {
+        case 'SPORT':
+          return `
+            <a href="#Calcio">Calcio</a><hr>
+            <a href="#Basket">Basket</a><hr>
+            <a href="#Tennis">Tennis</a><hr>
+            <a href="#">Atletica</a><hr>
+            <a href="#">Alro sport</a><hr>
+            <a href="#">Alro sport</a><hr>
+            <a href="#">Alro sport</a>
+          `;
+        case 'TEATRO':
+          return `
+            <a href="#Dramma">Dramma</a><hr>
+            <a href="#Musical">Musical</a><hr>
+            <a href="#Opera">Opera</a><hr>
+            <a href="#">Spettacolo_2</a><hr>
+            <a href="#">Spettacolo_1</a>
+          `;
+        case 'CINEMA':
+          return `
+            <a href="#Azione">Azione</a><hr>
+            <a href="#Commedia">Commedia</a><hr>
+            <a href="#Drammatico">Drammatico</a><hr>
+            <a href="#">Horror</a><hr>
+            <a href="#">Romantico</a><hr>
+            <a href="#">Cartoni</a>
+          `;
+        case 'DISCO':
+          return `
+            <a href="#House">House</a><hr>
+            <a href="#Techno">Techno</a><hr>
+            <a href="#Hip-Hop">Hip-Hop</a><hr>
+            <a href="#">Commercial</a><hr>
+            <a href="#">Raeggeton</a><hr>
+            <a href="#">Pop</a>
+          `;
+        default:
+          return '';
+      }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+
+    new Vue({
+      el: '#app',
+
+      data: {
+        input: '',
+        items: [
+          { id: 1, name: 'Prodotto A', description: 'Descrizione del prodotto A' },
+          { id: 2, name: 'Prodotto B', description: 'Descrizione del prodotto B' },
+          { id: 3, name: 'Prodotto C', description: 'Descrizione del prodotto C' },
+          { id: 4, name: 'Sport' , description: '' },
+          { id: 5, name: 'Teatro' , description: '' },
+          { id: 6, name: 'Cinema' , description: '' }
+        ],
+        filteredItems: []
+      },
+
+      methods: {
+        filterItems() {
+          if (this.input.trim() === '') {
+            this.filteredItems = [];
+          } else {
+            const firstLetterInput = this.input.charAt(0).toLowerCase(); // Prima lettera dell'input
+            this.filteredItems = this.items.filter(item =>
+                    item.name.charAt(0).toLowerCase() === firstLetterInput // Confronto della prima lettera
+            );
+          }
+        },
+        selectItem(item) {
+          this.input = item.name; // Assegna il nome dell'oggetto alla casella di ricerca
+          this.filteredItems = []; // Nascondi la tendina dopo la selezione
+        }
+      }
+
+    });
+</script>
+
+</body>
+</html>

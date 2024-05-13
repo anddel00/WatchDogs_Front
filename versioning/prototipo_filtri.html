@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca</title>
+    <style>
+        .dropdowndx {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdowndx-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .dropdowndx:hover .dropdowndx-content {
+            display: block;
+        }
+
+        .sub-categories {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+            border-top: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .category:hover .sub-categories {
+            display: block;
+        }
+
+        .sub-categories a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app" class="container">
+    <div class="nav">
+        <ul>
+            <li class="dropdowndx">
+                <a href="#"><b>Filtri</b></a>
+                <div class="dropdowndx-content">
+                    <div class="category">
+                        <a href="#">Sport</a>
+                        <div class="sub-categories">
+                            <a href="#">Calcio</a>
+                            <a href="#">Basket</a>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <a href="#">Cinema</a>
+                    </div>
+                    <div class="category">
+                        <a href="#">Musica</a>
+                    </div>
+                    <div class="category">
+                        <a href="#">Teatro</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
