@@ -351,53 +351,53 @@
 
 <body>
 <div id="app" class="container">
-    <button id="toggleFilterBtn" aria-expanded="false" aria-controls="menuFiltri" role="menu" aria-labelledby="toggleFilterBtn">Filtri</button>
-    <div class="menu-filtri" id="menuFiltri"> <!-- Contenitore principale per i filtri -->
+    <button id="toggleFilterBtn" aria-label="Toggle Filters">Filtri</button>
+    <div class="menu-filtri" id="menuFiltri" aria-labelledby="toggleFilterBtn"> <!-- Contenitore principale per i filtri -->
         <ul>
             <!-- Categoria "Sport" -->
-            <li role="menuitem" @click="sendRequestToSpringBoot('Sport')">Sport
-                <div class="menu-filtri-secondario" role="menu">
+            <li @click="sendRequestToSpringBoot('Sport')">Sport
+                <div class="menu-filtri-secondario">
                     <ul>
                         <!-- Sottocategorie di "Sport" -->
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Calcio')">Calcio</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Basket')">Basket</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Tennis')">Tennis</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Atletica')">Atletica</li>
+                        <li @click="sendRequestToSpringBoot('Calcio')">Calcio</li>
+                        <li @click="sendRequestToSpringBoot('Basket')">Basket</li>
+                        <li @click="sendRequestToSpringBoot('Tennis')">Tennis</li>
+                        <li @click="sendRequestToSpringBoot('Atletica')">Atletica</li>
                     </ul>
                 </div>
             </li>
             <!-- Categoria "Cinema" -->
-            <li role="menuitem" @click="sendRequestToSpringBoot('Cinema')">Cinema
-                <div class="menu-filtri-secondario" role="menu">
+            <li @click="sendRequestToSpringBoot('Cinema')">Cinema
+                <div class="menu-filtri-secondario">
                     <ul>
                         <!-- Sottocategorie di "Cinema" -->
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Commedia')">Commedia</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Drammatico')">Drammatico</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Horror')">Horror</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Fantascienza')">Fantascienza</li>
+                        <li @click="sendRequestToSpringBoot('Commedia')">Commedia</li>
+                        <li @click="sendRequestToSpringBoot('Drammatico')">Drammatico</li>
+                        <li @click="sendRequestToSpringBoot('Horror')">Horror</li>
+                        <li @click="sendRequestToSpringBoot('Fantascienza')">Fantascienza</li>
                     </ul>
                 </div>
             </li>
             <!-- Categoria "Teatro" -->
-            <li role="menuitem" @click="sendRequestToSpringBoot('Teatro')" onmouseleave="keepSubMenu()">Teatro
-                <div class="menu-filtri-secondario" role="menu">
+            <li @click="sendRequestToSpringBoot('Teatro')" onmouseleave="keepSubMenu()">Teatro
+                <div class="menu-filtri-secondario">
                     <ul>
                         <!-- Sottocategorie di "Teatro" -->
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Commedia')">Commedia</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Drammatico')">Drammatico</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Musicale')">Musicale</li>
+                        <li @click="sendRequestToSpringBoot('Commedia')">Commedia</li>
+                        <li @click="sendRequestToSpringBoot('Drammatico')">Drammatico</li>
+                        <li @click="sendRequestToSpringBoot('Musicale')">Musicale</li>
                     </ul>
                 </div>
             </li>
             <!-- Categoria "Musica" -->
-            <li role="menuitem" @click="sendRequestToSpringBoot('Musica')">Musica
-                <div class="menu-filtri-secondario" role="menu">
+            <li @click="sendRequestToSpringBoot('Musica')">Musica
+                <div class="menu-filtri-secondario">
                     <ul>
                         <!-- Sottocategorie di "Musica" -->
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Rock')">Rock</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Pop')">Pop</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Jazz')">Jazz</li>
-                        <li role="menuitem" @click="sendRequestToSpringBoot('Classica')">Classica</li>
+                        <li @click="sendRequestToSpringBoot('Rock')">Rock</li>
+                        <li @click="sendRequestToSpringBoot('Pop')">Pop</li>
+                        <li @click="sendRequestToSpringBoot('Jazz')">Jazz</li>
+                        <li @click="sendRequestToSpringBoot('Classica')">Classica</li>
                     </ul>
                 </div>
             </li>
@@ -408,17 +408,17 @@
 
     <!-- Container per la barra di ricerca -->
     <div class="search-container">
-        <form @submit.prevent="searchEvents" role="search">
+        <form @submit.prevent="searchEvents">
             <!-- Input per inserire il testo di ricerca -->
-            <input type="text" v-model="input" @input="filterItems" @keyup.enter="searchEvents" class="search-box" name="q" placeholder="Cerca evento..." aria-label="Cerca evento">
-            <button @click="searchEvents" class="search-button" aria-label="Vai">Vai</button>
+            <input type="text" v-model="input" @input="filterItems" @keyup.enter="searchEvents" class="search-box" name="q" placeholder="Cerca evento...">
+            <button @click="searchEvents" class="search-button">Vai</button>
         </form>
 
         <!-- Dropdown menu per i suggerimenti di ricerca -->
-        <div class="dropdown-menu" v-if="suggestions.length > 0" role="listbox" aria-label="Suggerimenti di ricerca">
+        <div class="dropdown-menu" v-if="suggestions.length > 0">
             <ul>
                 <!-- Iterazione attraverso i suggerimenti e creazione di un elemento per ciascun suggerimento -->
-                <li v-for="suggestion in suggestions" :key="suggestion" @click="selectSuggestion(suggestion)" role="option>
+                <li v-for="suggestion in suggestions" :key="suggestion" @click="selectSuggestion(suggestion)">
                     {{ suggestion }} <!-- Testo del suggerimento -->
                 </li>
             </ul>
@@ -428,10 +428,10 @@
 
     <div class="container-two"><h1 class="homepage-title"><b>H o m e p a g e</b></h1>
         <!-- Container per i risultati della ricerca -->
-        <div class="post-container" v-show="filteredItems.length > 0 && !showSpringBootData" role="region" aria-live="polite">
+        <div class="post-container" v-show="filteredItems.length > 0 && !showSpringBootData">
             <h3>Risultati per: "{{ input }}"</h3>
             <ul>
-                <li v-for="filter in filteredItems" :key="filter.id" role="listitem">
+                <li v-for="filter in filteredItems" :key="filter.id">
                     <h4>{{ filter.tipologia }}</h4>
                     <!--<p><strong>Url:</strong> {{ filter.url_image }}</p>-->
                     <p><strong>Nome evento:</strong> {{ filter.eventname }}</p>
@@ -443,9 +443,9 @@
                 </li>
             </ul>
         </div>
-        <div class="spring-boot-data-container" v-show="springBootData.length > 0 && !showSearchResults" role="region" aria-live="polite">
+        <div class="spring-boot-data-container" v-show="springBootData.length > 0 && !showSearchResults">
             <ul>
-                <li v-for="spring in springBootData" :key="spring.id" role="listitem">
+                <li v-for="spring in springBootData" :key="spring.id">
                     <h4>{{ spring.tipologia }}</h4>
                     <!--<p><strong>Url:</strong> {{ spring.url_image }}</p>-->
                     <p><strong>Nome evento:</strong> {{ spring.eventname }}</p>
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input: '', // Rappresenta l'input dell'utente nella barra di ricerca
         filteredItems: [], // Contiene gli elementi filtrati ottenuti dalla ricerca
         suggestions: [], // Array per memorizzare i suggerimenti durante la digitazione nella barra di ricerca
-        springBootData: [] // Array per memorizzare i dati ottenuti da Spring Boot
+        springBootData: [], // Array per memorizzare i dati ottenuti da Spring Boot
         showSearchResults: false, // Boolean per determinare se mostrare i risultati della ricerca
         showSpringBootData: false // Boolean per determinare se mostrare i dati di Spring Boot
     },
